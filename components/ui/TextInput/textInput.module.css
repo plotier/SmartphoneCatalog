@@ -1,0 +1,8 @@
+.customInput {
+    outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+}
