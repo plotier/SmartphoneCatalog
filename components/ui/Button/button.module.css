@@ -1,0 +1,29 @@
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 32px;
+
+    width: 361px;
+    height: 48px;
+
+    background: #000000;
+
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease;
+    letter-spacing: 0.08em;
+}
+
+.deactivated {
+    background: #F3F2F2;
+    color: #B0B0B0;
+    cursor: not-allowed;
+    letter-spacing: 0.08em;
+}
