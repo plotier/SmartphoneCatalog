@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 360px;
+}
+
+.overviewContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  padding-bottom: 32px;
+
+}
+
+.specsContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-bottom: 64px;
+
+}
+
+.imageContainer {
+  max-height: 510px;
+  max-width: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectors {
+  padding-block: 50px;
+}
+
+.storageContainer {
+  display: flex;
+  padding-top: 16px;
+}
+
+.colorContainer {
+  padding-block: 24;
+}
+
+.carrouselContainer {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 16px;
+}
+
+.carrouselContainer>* {
+  flex-shrink: 0;
+}

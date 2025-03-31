@@ -1,0 +1,29 @@
+.optionsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 0px;
+    padding-block: 10px;
+    gap: 10px;
+}
+
+.option {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.swatch {
+    width: 20px;
+    height: 20px;
+}
+
+.selected {
+    border: 1px solid black;
+}

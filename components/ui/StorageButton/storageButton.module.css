@@ -1,0 +1,29 @@
+.button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  width: 95px;
+  height: 65px;
+  left: 16px;
+  top: 16px;
+  border: 1px solid #CCCCCC;
+  /* outline: 1px solid grey;
+  outline-offset: -0.5px; */
+}
+
+.selected-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  width: 95px;
+  height: 65px;
+  left: 134px;
+  top: 16px;
+  border: 1px solid #000000;
+}
