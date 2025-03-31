@@ -1,0 +1,70 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 344px;
+  width: 344px;
+  min-width: 100%;
+  max-width: 377px;
+  padding: 16px;
+  color: black;
+  box-sizing: border-box;
+  outline: 1px solid grey;
+  outline-offset: -0.5px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.imageContainer {
+  margin: 16px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cardInfoContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: end;
+  z-index: 1;
+}
+
+.cardNames {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.cardNames p:first-of-type {
+  color: var(--brand-card-color);
+  font-size: var(--font-size-xs);
+  z-index: 1;
+  padding-bottom: 4px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0; 
+  background-color: black;
+  transition: height 0.3s ease-in-out; 
+  z-index: 0;
+}
+.card:hover {
+  color: white; 
+}
+
+.card:hover::after {
+  height: 100%;
+  color: white;
+}
