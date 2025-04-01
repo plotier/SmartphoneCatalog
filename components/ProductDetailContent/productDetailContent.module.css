@@ -6,7 +6,6 @@
 
 .overviewContainer {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   position: relative;
   padding-bottom: 32px;
@@ -22,11 +21,9 @@
 }
 
 .imageContainer {
-  max-height: 510px;
-  max-width: 310px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 630px;
+  width: 510px;
+  position: relative;
 }
 
 .selectors {
@@ -52,4 +49,8 @@
 
 .carrouselContainer>* {
   flex-shrink: 0;
+}
+
+.alternative-padding {
+  padding-block: var(--alternative-padding-md);
 }

@@ -1,4 +1,4 @@
-import { getProducts } from "@/lib/service";
+import { getProducts } from "@/api/service";
 import {
 	QueryClient,
 	HydrationBoundary,

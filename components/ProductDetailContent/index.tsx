@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { getProductById } from "@/lib/service";
+import { getProductById } from "@/api/service";
 import Image from "next/image";
 import Link from "next/link";
 import { useGlobalContext } from "@/hooks/useGlobalContext";
@@ -12,14 +12,18 @@ import { Product } from "../../types/product";
 import Button from "../ui/Button";
 import SpecificationRow from "../ui/SpecificationRow";
 import ProductCard from "../ProductCard";
-import { StorageOptions, ColorOptionType } from "@/types/productDetails";
+import {
+	StorageOptions,
+	ColorOptionType,
+} from "@/types/productDetails";
+import { getPaddingClass } from "@/utils/paddingUtils";
 
 const ProductDetailContent = ({ id }: { id: string }) => {
 	const { dispatch } = useGlobalContext();
 	const [selectedColor, setSelectedColor] =
 		useState<ColorOptionType>({
-			name:'',
-			imageUrl:''
+			name: "",
+			imageUrl: "",
 		});
 	const [selectedCapacity, setSelectedCapacity] =
 		useState<StorageOptions>({
@@ -37,18 +41,22 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 
 	const handleAddToCart = () => {
 		if (product) {
-			dispatch({ type: "ADD_TO_CART", payload: {
-				id:crypto.randomUUID(),
-				name: product.name,
-				price: selectedCapacity.price,
-				imageUrl: selectedColor.imageUrl,
-				capacity: selectedCapacity.capacity,
-				color: selectedColor.name,
-			} });
+			dispatch({
+				type: "ADD_TO_CART",
+				payload: {
+					id: crypto.randomUUID(),
+					name: product.name,
+					price: selectedCapacity.price,
+					imageUrl: selectedColor.imageUrl,
+					capacity: selectedCapacity.capacity,
+					color: selectedColor.name,
+					brand: product.brand,
+				},
+			});
 		}
 	};
 
-	const handleColor = (color:ColorOptionType) => {
+	const handleColor = (color: ColorOptionType) => {
 		setSelectedColor(color);
 	};
 
@@ -57,7 +65,7 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 			selectedCapacity.capacity !== "" &&
 			selectedColor.name === ""
 		) {
-			setSelectedColor(product?.colorOptions[0])
+			setSelectedColor(product?.colorOptions[0]);
 		}
 
 		if (
@@ -65,7 +73,7 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 			selectedCapacity.capacity === ""
 		) {
 			setSelectedCapacity({
-				...selectedCapacity,
+				price: product?.storageOptions[0].price,
 				capacity: product?.storageOptions[0].capacity,
 			});
 		}
@@ -73,10 +81,11 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 
 	if (isFetching) return <div>Loading...</div>;
 	if (error) return <div>Error loading product</div>;
-	
+
 	const selectedColorOption = product?.colorOptions.find(
 		(option: Product) => option.name === selectedColor.name
 	);
+
 	return (
 		<>
 			<Link
@@ -94,17 +103,18 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 			<div className={styles.container}>
 				<div className={styles.overviewContainer}>
 					<div className={styles.imageContainer}>
-						<Image
+										<Image
 							src={
 								selectedColor.name !== ""
 									? selectedColorOption.imageUrl
 									: product?.colorOptions[0].imageUrl
 							}
-							alt={product?.name || ""}
-							width={510}
-							height={630}
-							style={{ width: "100%", height: "100%" }}
-							priority
+							alt={product.name}
+							className={
+								styles[getPaddingClass(product.brand)]
+							}
+							fill
+							objectFit="contain"
 						/>
 					</div>
 					<div className={styles.infoContainer}>
@@ -141,17 +151,15 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 									{selectedColor.name}
 								</p>
 							</div>
-							<Link
-								href="/cart"
-								passHref
-							>
-								<Button
-									onClick={handleAddToCart}
-									deactivated={selectedColor.name === ""}
-								>
-									AÑADIR
-								</Button>
-							</Link>
+							{selectedColor.name === "" ? (
+								<Button deactivated> AÑADIR </Button>
+							) : (
+								<Link href="/cart">
+									<Button onClick={handleAddToCart}>
+										AÑADIR
+									</Button>
+								</Link>
+							)}
 						</div>
 					</div>
 				</div>

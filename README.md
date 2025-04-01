@@ -35,15 +35,3 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-PARA EL README
-
-MEMORIA - LOCALSTORAGE
-JUNTAR LOS HOOKS?
-CART - SE AGREGAN PRODUCTOS REPETIDOS, AL ELIMINAR, SE ELIMINAN TODOS EN UN CLICK
-SEARCH - CLEAR CROSS BUTTON
-CARDS - EFECTO MOVIL ESTIRADO ON HOVER
-index.tsx:11 Image with src "http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A05S-black.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: 
-Script para ejecutar el linter
-CART - Se tiene que agregar el movil elegido con precio y color.
-Tamaño de las cards cuando quedan, por ejemplo, 2. Se estira el width
-CART Agregar persistencia y memoria local storage.

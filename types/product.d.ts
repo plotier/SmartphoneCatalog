@@ -15,4 +15,5 @@ export interface CartProduct {
   imageUrl: string;
   capacity: string;
   color: string;
+  brand:string
 }

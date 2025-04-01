@@ -2,6 +2,7 @@ import { Product } from "@/types/product";
 import styles from "./productCard.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { getPaddingClass } from "@/utils/paddingUtils";
 
 const ProductCard = ({ product }: { product: Product }) => {
 	return (
@@ -9,16 +10,12 @@ const ProductCard = ({ product }: { product: Product }) => {
 			<div className={styles.card}>
 				<div className={styles.imageContainer}>
 					<Image
-						src={product.imageUrl}
-						alt={product.name}
-						layout="fill"
-						// width={100}
-						// height={100}
-						objectPosition="center"
-						objectFit="contain"
-						priority
-						// sizes="(max-width: 768px) 100px, (max-width: 1200px) 50px, 33px"
-					/>
+								src={product.imageUrl || ""}
+								alt={product.name}
+								className={styles[getPaddingClass(product.brand)]}
+								fill
+								objectFit="contain"
+							/>
 				</div>
 				<div className={styles.cardInfoContainer}>
 					<div className={styles.cardNames}>

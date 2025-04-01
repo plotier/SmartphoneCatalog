@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Provider from "@/util/Provider";
+import Provider from "@/api/Provider";
 import Navbar from "@/components/Navbar";
 import { GlobalProvider } from "@/context/GlobalContext";
 

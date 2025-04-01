@@ -1,5 +1,5 @@
 import ProductDetailContent from "@/components/ProductDetailContent";
-import { getProductById } from "@/lib/service";
+import { getProductById } from "@/api/service";
 import {
     QueryClient,
     HydrationBoundary,

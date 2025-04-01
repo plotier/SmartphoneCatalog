@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  min-width: 548px;
+}
+
+.imageContainer {
+  width: 324px;
+  height: 362px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.price {
+  padding-top: 16px;
+}
+
+.infoContainer {
+  height: 324px;
+  width: 246px;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  flex: 1;
+  justify-content: space-between;
+  padding-top: 12%;
+  padding-bottom: 5%;
+}
+
+.deleteButton {
+  text-transform: none;
+  color: red;
+  display: flex;
+  cursor: pointer;
+}
+
+.alternative-padding {
+  padding-block: var(--alternative-padding-md);
+}

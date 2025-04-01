@@ -1,9 +1,11 @@
 "use client";
-import { useEffect } from "react";
 import { CartProduct } from "@/types/product";
-import Image from "next/image";
 import Link from "next/link";
 import { useGlobalContext } from "@/hooks/useGlobalContext";
+import CartItem from "@/components/CartItem";
+import styles from "./cart.module.css";
+import Button from "@/components/ui/Button";
+import { calculateTotalPrice } from "@/utils/calculateTotalPrice";
 
 export default function Cart() {
 	const { state, dispatch } = useGlobalContext();
@@ -11,43 +13,34 @@ export default function Cart() {
 	const handleRemove = (id: string) => {
 		dispatch({ type: "REMOVE_FROM_CART", payload: id });
 	};
-	//TODO: atomizar en otros componentes
-	useEffect(() => {
-		console.log(state);
-	}, [state]);
 
 	return (
-		<div>
-			<h2>CART {state.cart.length}</h2>
-
-			<ul>
+		<div className={styles.container}>
+			<h2 className={styles.cartTitle}>
+				CART ({state.cart.length})
+			</h2>
+			<div className={styles.content}>
 				{state.cart.map((product: CartProduct, index) => (
-					<li key={product.name + index}>
-						<Image
-							src={product.imageUrl || ""}
-							alt={product.name}
-							width={150}
-							height={150}
-							priority
-						/>
-						<span>
-							{product.capacity} | ${product.color}
-						</span>
-						<span>{product.price} EUR</span>
-						<button
-							onClick={() => handleRemove(product.id)}
-						>
-							Eliminar
-						</button>
-					</li>
+					<CartItem
+						key={index + product.name}
+						product={product}
+						handleRemove={handleRemove}
+					/>
 				))}
-			</ul>
-			<Link
-				href="/"
-				passHref
-			>
-				<button>CONTINUE SHOPPING</button>
-			</Link>
+			</div>
+			<div className={styles.buttonsContainer}>
+				<Link
+					href="/"
+					passHref
+				>
+					<Button transparent>CONTINUE SHOPPING</Button>
+				</Link>
+				<div className={styles.totalAndPayContainer}>
+					<span>TOTAL </span>
+					<span> {calculateTotalPrice(state.cart)}EUR</span>
+					<Button>PAY</Button>
+				</div>
+			</div>
 		</div>
 	);
 }

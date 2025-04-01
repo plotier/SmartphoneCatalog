@@ -1,5 +1,5 @@
 'use client'
-import { getProducts } from "@/lib/service";
+import { getProducts } from "@/api/service";
 import { useQuery } from "@tanstack/react-query";
 import { Product } from '../../types/product';
 import ProductCard from "../ProductCard";
