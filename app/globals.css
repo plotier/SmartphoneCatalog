@@ -12,6 +12,7 @@
   --font-size-xl: 16px;
   --font-size-xxl: 24px;
 
+  --alternative-padding-lg: 26%;
   --alternative-padding-md: 20%;
   --alternative-padding-sm: 10%
 }
@@ -27,7 +28,7 @@ html,
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:  Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--font-size-sm);
@@ -42,6 +43,7 @@ h1 {
   font-size: --font-size-xxl;
   line-height: 29px;
   text-transform: uppercase;
+  letter-spacing: normal;
 }
 h2 {
   font-weight: 300;

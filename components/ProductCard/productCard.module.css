@@ -67,7 +67,7 @@
 
 .card:hover::after {
   height: 100%;
-  color: white;
+
 }
 
 .alternative-padding {

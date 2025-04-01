@@ -19,7 +19,7 @@ const CartItem = ({
 					alt={product.name}
 					className={styles[getPaddingClass(product.brand)]}
 					fill
-					objectFit="contain"
+					style={{ objectFit: "contain" }} 
 				/>
 			</div>
 			<div className={styles.infoContainer}>

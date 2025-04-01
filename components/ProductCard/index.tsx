@@ -14,7 +14,8 @@ const ProductCard = ({ product }: { product: Product }) => {
 								alt={product.name}
 								className={styles[getPaddingClass(product.brand)]}
 								fill
-								objectFit="contain"
+								style={{ objectFit: "contain" }} 
+								priority
 							/>
 				</div>
 				<div className={styles.cardInfoContainer}>

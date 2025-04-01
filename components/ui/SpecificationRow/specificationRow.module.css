@@ -11,6 +11,9 @@
     top: 1375px;
     border-bottom: 0.5px solid #000000;
 }
+.especificacionRow:first-of-type {
+    border-top: 0.5px solid #000000;
+}
 
 .label {
     min-width: 300px;

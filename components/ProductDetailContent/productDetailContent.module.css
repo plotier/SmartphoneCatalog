@@ -1,22 +1,28 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding-inline: 360px;
+  /* padding-inline: 360px; */
+  width: 100%;
+  align-items: center;
 }
 
 .overviewContainer {
   display: flex;
   align-items: center;
   position: relative;
-  padding-bottom: 32px;
-
+  /* padding-bottom: 32px; */
+  justify-content: space-between;
+  width: 1200;
+  max-width: 1200px;
 }
 
-.specsContainer {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  padding-bottom: 64px;
+.infoContainer {
+  height: 380px;
+  width: 459px;
+}
+
+.infoContainer h1 {
+  margin-bottom: 11px;
 
 }
 
@@ -26,8 +32,22 @@
   position: relative;
 }
 
+.specsContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-bottom: 64px;
+  max-width: 1000px;
+}
+
+.specsContainer h2{
+  padding-bottom: 40px;
+}
+
 .selectors {
-  padding-block: 50px;
+  padding-block: 64px;
+  height: 211px;
+
 }
 
 .storageContainer {
@@ -36,7 +56,9 @@
 }
 
 .colorContainer {
-  padding-block: 24;
+  padding-top: 40px;
+  height: 65px;
+  margin-bottom: 64px;
 }
 
 .carrouselContainer {
@@ -45,6 +67,8 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   padding-top: 16px;
+  max-width: 1000px;
+  padding-block: 40px;
 }
 
 .carrouselContainer>* {

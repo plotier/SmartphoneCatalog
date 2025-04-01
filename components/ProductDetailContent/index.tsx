@@ -103,7 +103,7 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 			<div className={styles.container}>
 				<div className={styles.overviewContainer}>
 					<div className={styles.imageContainer}>
-										<Image
+						<Image
 							src={
 								selectedColor.name !== ""
 									? selectedColorOption.imageUrl
@@ -114,12 +114,16 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 								styles[getPaddingClass(product.brand)]
 							}
 							fill
-							objectFit="contain"
+							style={{ objectFit: "contain" }} 
 						/>
 					</div>
 					<div className={styles.infoContainer}>
 						<h1>{product?.name}</h1>
-						<h2>From {product?.basePrice} EUR</h2>
+						<h2>
+							{selectedCapacity.price !== 0
+								? `${selectedCapacity.price} EUR`
+								: `From ${product?.basePrice} EUR`}
+						</h2>
 
 						<div className={styles.selectors}>
 							<p>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</p>
