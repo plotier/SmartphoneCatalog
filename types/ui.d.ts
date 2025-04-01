@@ -13,6 +13,7 @@ export interface TextInputProps {
 
   export interface ButtonProps {
     deactivated?: boolean;
+    transparent?: boolean;
     children: React.ReactNode;
     onClick?: () => void;
   }

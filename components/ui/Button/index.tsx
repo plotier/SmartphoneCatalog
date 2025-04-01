@@ -6,15 +6,16 @@ import { ButtonProps } from "@/types/ui";
 
 const Button: React.FC<ButtonProps> = ({
 	deactivated = false,
+	transparent = false,
 	children,
-    onClick
+	onClick,
 }) => {
 	return (
 		<div
-			onClick={onClick}
+			onClick={deactivated ? undefined : onClick}
 			className={`${styles.button} ${
 				deactivated ? styles.deactivated : ""
-			}`}
+			} ${transparent ? styles.transparent : ""}`}
 		>
 			{children}
 		</div>

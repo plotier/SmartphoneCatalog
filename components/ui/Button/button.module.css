@@ -27,3 +27,8 @@
     cursor: not-allowed;
     letter-spacing: 0.08em;
 }
+.transparent {
+    background: transparent;
+    color: black;
+    border: 1px solid black;
+}
