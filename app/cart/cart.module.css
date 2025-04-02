@@ -35,16 +35,82 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
     padding: 20px;
     background-color: white;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
-
 .totalAndPayContainer {
     display: flex;
     font-size: var(--font-size-md);
     gap: 24px;
     align-items: center;
+}
+
+.totalHidden {
+    display: none;
+}
+
+.mobileBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap:4
+}
+
+@media (min-width: 768px) {
+    .totalDesktop {
+        display: flex;
+        justify-content: center;
+    }
+
+    .totalMobile {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .totalMobile {
+        display: flex;
+        justify-content: center;
+    }
+
+    .buttonsContainer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .totalDesktop {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobileBox {
+        display: flex;
+
+    }
+
+    .buttonsContainer {
+        gap: 4;
+    }
+
+    .continueContainer {
+        width: 50%;
+    }
+    .continueContainerEmpty {
+        width: 100%;
+    }
+
+    .totalAndPayContainer {
+        width: 50%;
+    }
 }

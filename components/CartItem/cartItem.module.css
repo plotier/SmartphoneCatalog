@@ -44,14 +44,12 @@
     align-items: center;
     width: 100%;
     overflow: hidden;
-
     min-width: unset;
   }
 
   .imageContainer {
     padding-bottom: 0;
     margin-bottom: 0;
-    width: 100%;
     min-width: 100px
   }
 
@@ -64,5 +62,13 @@
 
   .deleteButton {
     justify-content: center;
+  }
+}
+@media (max-width:480px){
+  .imageContainer {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 100px
   }
 }

@@ -10,7 +10,7 @@ export default function Provider({ children, dehydratedState }: { children: Reac
             new QueryClient({
                 defaultOptions: {
                     queries: {
-                        staleTime: 24 * 60 * 60 * 1000, // 24 horas
+                        staleTime: 24 * 60 * 60 * 1000, // 24 hs.
                     },
                 },
             })

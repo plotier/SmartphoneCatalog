@@ -5,7 +5,7 @@ import { useGlobalContext } from "@/hooks/useGlobalContext";
 import CartItem from "@/components/CartItem";
 import styles from "./cart.module.css";
 import Button from "@/components/ui/Button";
-import { calculateTotalPrice } from "@/utils/calculateTotalPrice";
+import TotalPrice from "@/components/Cart/TotalPrice";
 
 export default function Cart() {
 	const { state, dispatch } = useGlobalContext();
@@ -30,19 +30,35 @@ export default function Cart() {
 					))}
 				</div>
 				<div className={styles.buttonsContainer}>
-					<Link
-						href="/"
-						passHref
-					>
-						<Button transparent>CONTINUE SHOPPING</Button>
-					</Link>
-					<div className={styles.totalAndPayContainer}>
-						<span>TOTAL </span>
-						<span>
-							{" "}
-							{calculateTotalPrice(state.cart)}EUR
-						</span>
-						<Button>PAY</Button>
+					{state.cart.length > 0 && (
+						<div
+							className={`${styles.totalMobile} ${styles.totalHidden}`}
+						>
+							<TotalPrice />
+						</div>
+					)}
+					<div className={styles.mobileBox}>
+						<div className={ state.cart.length === 0 ?styles.continueContainerEmpty:styles.continueContainer}>
+							<Link
+								href="/"
+								passHref
+							>
+								<Button transparent>
+									CONTINUE SHOPPING
+								</Button>
+							</Link>
+						</div>
+
+						{state.cart.length > 0 && (
+							<div className={styles.totalAndPayContainer}>
+								<div
+									className={`${styles.totalDesktop} ${styles.totalHidden}`}
+								>
+									<TotalPrice />
+								</div>
+								<Button>PAY</Button>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
