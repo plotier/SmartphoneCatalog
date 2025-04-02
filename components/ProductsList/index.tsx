@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const ProductsList = () => {
   const { state, dispatch } = useGlobalContext();
-  const debouncedSearch = useDebounce(state.search, 1500);
+  const debouncedSearch = useDebounce(state.search, 300);
 
   const { data, isFetching } = useQuery({
 

@@ -15,32 +15,37 @@ export default function Cart() {
 	};
 
 	return (
-		<div className={styles.container}>
+		<>
 			<h2 className={styles.cartTitle}>
 				CART ({state.cart.length})
 			</h2>
-			<div className={styles.content}>
-				{state.cart.map((product: CartProduct, index) => (
-					<CartItem
-						key={index + product.name}
-						product={product}
-						handleRemove={handleRemove}
-					/>
-				))}
-			</div>
-			<div className={styles.buttonsContainer}>
-				<Link
-					href="/"
-					passHref
-				>
-					<Button transparent>CONTINUE SHOPPING</Button>
-				</Link>
-				<div className={styles.totalAndPayContainer}>
-					<span>TOTAL </span>
-					<span> {calculateTotalPrice(state.cart)}EUR</span>
-					<Button>PAY</Button>
+			<div className={styles.container}>
+				<div className={styles.content}>
+					{state.cart.map((product: CartProduct, index) => (
+						<CartItem
+							key={index + product.name}
+							product={product}
+							handleRemove={handleRemove}
+						/>
+					))}
+				</div>
+				<div className={styles.buttonsContainer}>
+					<Link
+						href="/"
+						passHref
+					>
+						<Button transparent>CONTINUE SHOPPING</Button>
+					</Link>
+					<div className={styles.totalAndPayContainer}>
+						<span>TOTAL </span>
+						<span>
+							{" "}
+							{calculateTotalPrice(state.cart)}EUR
+						</span>
+						<Button>PAY</Button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }

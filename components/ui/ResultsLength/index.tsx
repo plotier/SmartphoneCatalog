@@ -7,11 +7,10 @@ const ResultsLength = ({
 }) => {
 	return (
 		<div>
-				<p>{`${results} ${
-			results === 1 ? "RESULT" : "RESULTS"
-		}`}</p>
+			<p>{`${results} ${
+				results === 1 ? "RESULT" : "RESULTS"
+			}`}</p>
 		</div>
-	
 	);
 };
 export default ResultsLength;
