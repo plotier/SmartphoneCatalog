@@ -25,15 +25,3 @@
   right: 10px;
   top: 0
 }
-
-@media (min-width: 481px) and (max-width: 1024px) {
-  .container {
-    padding-inline: 54px;
-  }
-}
-
-@media (min-width: 1025px) {
-  .container {
-    padding-inline: 112px;
-  }
-}

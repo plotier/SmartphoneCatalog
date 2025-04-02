@@ -73,3 +73,19 @@
 .alternative-padding {
   padding-block: var(--alternative-padding-sm);
 }
+
+@media (min-width: 420px) {
+  .card  {
+    min-width: 344px;
+  }
+}
+@media (max-width: 420) {
+  .isMinSize {
+    width: 300px;
+  }
+}
+@media (max-width: 200px) {
+  .isMinSize {
+    width: 100px;
+  }
+}

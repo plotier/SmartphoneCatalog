@@ -32,3 +32,9 @@
     color: black;
     border: 1px solid black;
 }
+@media (max-width: 768px) {
+    .button {
+     width: 100%;
+  
+    }
+  }

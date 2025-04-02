@@ -8,7 +8,6 @@
   height: 362px;
   overflow: hidden;
   position: relative;
-
 }
 
 .price {
@@ -36,4 +35,34 @@
 
 .alternative-padding {
   padding-block: var(--alternative-padding-md);
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+
+    min-width: unset;
+  }
+
+  .imageContainer {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 100px
+  }
+
+  .infoContainer {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .deleteButton {
+    justify-content: center;
+  }
 }

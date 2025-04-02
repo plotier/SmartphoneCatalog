@@ -15,7 +15,8 @@ type GlobalAction =
 	| { type: "ADD_TO_CART"; payload: CartProduct }
 	| { type: "REMOVE_FROM_CART"; payload: string }
 	| { type: "SET_SEARCH"; payload: string }
-	| { type: "SET_RESULTS_LENGTH"; payload: number };
+	| { type: "SET_RESULTS_LENGTH"; payload: number }
+	| { type: "SET_CART"; payload: CartProduct[] };
 
 const initialState: GlobalState = {
 	cart: [],
@@ -24,11 +25,12 @@ const initialState: GlobalState = {
 };
 
 const loadCartFromLocalStorage = (): CartProduct[] => {
-	const storedCart = localStorage.getItem("cart");
-	if (storedCart) {
-		return JSON.parse(storedCart);
+	if (typeof window === "undefined") {
+		return [];
 	}
-	return [];
+
+	const storedCart = localStorage.getItem("cart");
+	return storedCart ? JSON.parse(storedCart) : [];
 };
 
 const globalReducer = (
@@ -37,36 +39,26 @@ const globalReducer = (
 ): GlobalState => {
 	switch (action.type) {
 		case "ADD_TO_CART":
-			const updatedCartAdd = [
-				...state.cart,
-				action.payload,
-			];
+			const updatedCartAdd = [...state.cart, action.payload];
+			localStorage.setItem("cart", JSON.stringify(updatedCartAdd));
+			return { ...state, cart: updatedCartAdd };
 
-			localStorage.setItem(
-				"cart",
-				JSON.stringify(updatedCartAdd)
-			);
-			return {
-				...state,
-				cart: updatedCartAdd,
-			};
 		case "REMOVE_FROM_CART":
 			const updatedCartRemove = state.cart.filter(
 				(item) => item.id !== action.payload
 			);
+			localStorage.setItem("cart", JSON.stringify(updatedCartRemove));
+			return { ...state, cart: updatedCartRemove };
 
-			localStorage.setItem(
-				"cart",
-				JSON.stringify(updatedCartRemove)
-			);
-			return {
-				...state,
-				cart: updatedCartRemove,
-			};
+		case "SET_CART":
+			return { ...state, cart: action.payload };
+
 		case "SET_SEARCH":
 			return { ...state, search: action.payload };
+
 		case "SET_RESULTS_LENGTH":
 			return { ...state, resultsLength: action.payload };
+
 		default:
 			return state;
 	}
@@ -81,17 +73,16 @@ export const GlobalProvider = ({
 }: {
 	children: ReactNode;
 }) => {
-	const [state, dispatch] = useReducer(globalReducer, {
-		...initialState,
-		cart: loadCartFromLocalStorage(),
-	});
+	const [state, dispatch] = useReducer(globalReducer, initialState);
+
+	useEffect(() => {
+		const cart = loadCartFromLocalStorage();
+		dispatch({ type: "SET_CART", payload: cart });
+	}, []);
 
 	useEffect(() => {
 		if (state.cart.length) {
-			localStorage.setItem(
-				"cart",
-				JSON.stringify(state.cart)
-			);
+			localStorage.setItem("cart", JSON.stringify(state.cart));
 		}
 	}, [state.cart]);
 

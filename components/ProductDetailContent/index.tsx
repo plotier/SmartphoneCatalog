@@ -88,18 +88,20 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 
 	return (
 		<>
-			<Link
-				href="/"
-				passHref
-			>
-				<p
-					style={{
-						display: "flex",
-						justifyContent: "space-between",
-						paddingLeft: "8px",
-					}}
-				>{`< BACK `}</p>
-			</Link>
+			<div className={styles.backButton}>
+				<Link
+					href="/"
+					passHref
+				>
+					<p
+						style={{
+							display: "flex",
+							justifyContent: "space-between",
+							paddingLeft: "8px",
+						}}
+					>{`< BACK `}</p>
+				</Link>
+			</div>
 			<div className={styles.container}>
 				<div className={styles.overviewContainer}>
 					<div className={styles.imageContainer}>
@@ -110,11 +112,13 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 									: product?.colorOptions[0].imageUrl
 							}
 							alt={product.name}
-							className={
+							className={`${
 								styles[getPaddingClass(product.brand)]
-							}
+							} ${styles.show}`}
 							fill
-							style={{ objectFit: "contain" }} 
+							style={{ objectFit: "contain" }}
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+							priority
 						/>
 					</div>
 					<div className={styles.infoContainer}>
@@ -151,19 +155,17 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 									selectedColor={selectedColor.name}
 									onChange={handleColor}
 								/>
-								<p style={{ height: "15px" }}>
-									{selectedColor.name}
-								</p>
+								<p>{selectedColor.name}</p>
+								{selectedColor.name === "" ? (
+									<Button deactivated> AÑADIR </Button>
+								) : (
+									<Link href="/cart">
+										<Button onClick={handleAddToCart}>
+											AÑADIR
+										</Button>
+									</Link>
+								)}
 							</div>
-							{selectedColor.name === "" ? (
-								<Button deactivated> AÑADIR </Button>
-							) : (
-								<Link href="/cart">
-									<Button onClick={handleAddToCart}>
-										AÑADIR
-									</Button>
-								</Link>
-							)}
 						</div>
 					</div>
 				</div>
@@ -187,6 +189,7 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 						{product.similarProducts?.map(
 							(product: Product, index: number) => (
 								<ProductCard
+									isMinSize
 									key={product.id + index}
 									product={product}
 								/>

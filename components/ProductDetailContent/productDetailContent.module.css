@@ -1,35 +1,42 @@
 .container {
   display: flex;
   flex-direction: column;
-  /* padding-inline: 360px; */
   width: 100%;
   align-items: center;
+  padding-bottom: 16px;
+}
+
+.backButton {
+  margin-top: 86px;
+  margin-left: 12px;
 }
 
 .overviewContainer {
   display: flex;
   align-items: center;
   position: relative;
-  /* padding-bottom: 32px; */
   justify-content: space-between;
-  width: 1200;
   max-width: 1200px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .infoContainer {
   height: 380px;
   width: 459px;
+
 }
 
 .infoContainer h1 {
   margin-bottom: 11px;
-
 }
 
 .imageContainer {
   height: 630px;
   width: 510px;
   position: relative;
+  min-width: 120px;
 }
 
 .specsContainer {
@@ -40,12 +47,13 @@
   max-width: 1000px;
 }
 
-.specsContainer h2{
+.specsContainer h2 {
   padding-bottom: 40px;
 }
 
 .selectors {
-  padding-block: 64px;
+  padding-top: 32px;
+  padding-bottom: 64px;
   height: 211px;
 
 }
@@ -61,20 +69,75 @@
   margin-bottom: 64px;
 }
 
+.colorContainer p {
+  padding-bottom: 16px;
+}
+
+.similarItemsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.similarItemsContainer h2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 1000px;
+  padding-bottom: 16px;
+}
+
 .carrouselContainer {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  padding-top: 16px;
+  scroll-behavior: smooth;
+  padding-block: 16px;
+  width: 100%;
+  padding-inline: 2px;
   max-width: 1000px;
-  padding-block: 40px;
 }
 
 .carrouselContainer>* {
-  flex-shrink: 0;
+  flex-shrink: 1;
+
 }
+
 
 .alternative-padding {
   padding-block: var(--alternative-padding-md);
+}
+
+.carrouselContainer::-webkit-scrollbar {
+  height: 2px;
+  cursor: pointer;
+}
+
+.carrouselContainer::-webkit-scrollbar-thumb {
+  background: black;
+  cursor: pointer;
+}
+
+.carrouselContainer::-webkit-scrollbar-track {
+  background: #CCCCCC;
+  cursor: pointer;
+}
+
+.carrouselContainer {
+  /* scrollbar-width: thin; */
+  scrollbar-color: black 
+}
+
+
+@media (max-width: 768px) {
+  .infoContainer {
+    height: 380px;
+    width: 100%;
+  }
+
+  .specsContainer {
+    margin-top: 32px;
+  }
 }
