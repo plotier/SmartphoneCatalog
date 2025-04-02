@@ -1,26 +1,39 @@
 .container {
-    position: fixed;
-    top: var(--navbar-height);
-    left: 0;
-    right: 0;
-    background-color: white;
-    z-index: 10;
-    height: 87px;
-    position: flex;
-    align-content: center;
-    padding-inline: 32px;
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
+  height: 87px;
+  position: flex;
+  align-content: center;
+  padding-inline: 32px;
 }
+
 .inputWrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 0
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    padding-inline: 54px;
   }
-  
-  .clearButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top:0
+}
+
+@media (min-width: 1025px) {
+  .container {
+    padding-inline: 112px;
   }
+}

@@ -1,38 +1,43 @@
-'use client'
+"use client";
 import { getProducts } from "@/api/service";
 import { useQuery } from "@tanstack/react-query";
-import { Product } from '../../types/product';
+import { Product } from "../../types/product";
 import ProductCard from "../ProductCard";
 import styles from "./productsList.module.css";
-import { useGlobalContext } from '@/hooks/useGlobalContext';
+import { useGlobalContext } from "@/hooks/useGlobalContext";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useEffect } from "react";
 
 const ProductsList = () => {
-  const { state, dispatch } = useGlobalContext();
-  const debouncedSearch = useDebounce(state.search, 300);
+	const { state, dispatch } = useGlobalContext();
+	const debouncedSearch = useDebounce(state.search, 300);
 
-  const { data, isFetching } = useQuery({
+	const { data, isFetching } = useQuery({
+		queryKey: ["products", debouncedSearch],
+		queryFn: () =>
+			getProducts({ search: debouncedSearch, limit: 20 }),
+	});
 
-    queryKey: ["products", debouncedSearch],
-    queryFn: () => getProducts({ search: debouncedSearch, limit: 20 })
-  })
+	useEffect(() => {
+		if (data)
+			dispatch({
+				type: "SET_RESULTS_LENGTH",
+				payload: data.length,
+			});
+	}, [data, dispatch]);
 
-  useEffect(() => {
-    if (data)
-      dispatch({ type: "SET_RESULTS_LENGTH", payload: data.length });
-  }, [data, dispatch])
+	if (isFetching) return <div>Loading...</div>;
 
+	return (
+		<div className={styles.container}>
+			{data?.map((product: Product, index: number) => (
+				<ProductCard
+					key={product.id + index}
+					product={product}
+				/>
+			))}
+		</div>
+	);
+};
 
-  if (isFetching) return <div>Loading...</div>
-
-  return (
-    <div className={styles.container}>
-      {data?.map((product: Product, index: number) => (
-        <ProductCard key={product.id + index} product={product} />
-      ))}
-    </div>
-  )
-}
-
-export default ProductsList
+export default ProductsList;

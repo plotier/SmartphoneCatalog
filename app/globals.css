@@ -16,7 +16,7 @@
   --alternative-padding-md: 20%;
   --alternative-padding-sm: 10%;
 
-  --navbar-height:80px;
+  --navbar-height: 80px;
 }
 
 * {
@@ -30,13 +30,17 @@ html,
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family:  Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--font-size-sm);
   font-weight: 300;
   max-width: 100vw;
   overflow-x: hidden;
+
+}
+
+nav {
   padding-inline: 16px;
 }
 
@@ -47,6 +51,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: normal;
 }
+
 h2 {
   font-weight: 300;
   font-size: --font-size-xl;
@@ -62,4 +67,34 @@ a {
 ::placeholder {
   font-size: var(--font-size-md);
   color: #AAAAAA;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-inline: 16px;
+  }
+
+  nav {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-inline: 40px;
+  }
+
+  nav {
+    padding-inline: 48px;
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    padding-inline: 100px;
+  }
+
+  nav {
+    padding-inline: 110px;
+  }
 }
