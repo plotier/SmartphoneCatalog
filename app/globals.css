@@ -14,7 +14,9 @@
 
   --alternative-padding-lg: 26%;
   --alternative-padding-md: 20%;
-  --alternative-padding-sm: 10%
+  --alternative-padding-sm: 10%;
+
+  --navbar-height:80px;
 }
 
 * {
