@@ -15,7 +15,7 @@ const ProductsList = () => {
 	const { data, isFetching } = useQuery({
 		queryKey: ["products", debouncedSearch],
 		queryFn: () =>
-			getProducts({ search: debouncedSearch, limit: 20 }),
+			getProducts({ search: debouncedSearch, limit: 20 })
 	});
 
 	useEffect(() => {

@@ -10,8 +10,8 @@ import Search from "@/components/Search";
 export default async function Home() {
 	const queryClient = new QueryClient();
 	await queryClient.prefetchQuery({
-		queryKey: ["products"],
-		queryFn: () => getProducts({ search: "", limit: 20 }),
+		queryKey: ["products", ""],
+		queryFn: () => getProducts({ limit: 20 })
 	});
 
 	return (

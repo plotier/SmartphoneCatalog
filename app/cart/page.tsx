@@ -15,7 +15,7 @@ export default function Cart() {
 	};
 
 	return (
-		<>
+		<div>
 			<h2 className={styles.cartTitle}>
 				CART ({state.cart.length})
 			</h2>
@@ -38,7 +38,13 @@ export default function Cart() {
 						</div>
 					)}
 					<div className={styles.mobileBox}>
-						<div className={ state.cart.length === 0 ?styles.continueContainerEmpty:styles.continueContainer}>
+						<div
+							className={
+								state.cart.length === 0
+									? styles.continueContainerEmpty
+									: styles.continueContainer
+							}
+						>
 							<Link
 								href="/"
 								passHref
@@ -62,6 +68,6 @@ export default function Cart() {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
