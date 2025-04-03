@@ -5,6 +5,10 @@ searching, and managing a catalog of mobile phones. It
 allows users to view detailed information for each device
 and efficiently manage a shopping cart.
 
+## Live Demo
+
+You can view the live application [here](https://smartphone-tau.vercel.app/).
+
 ## Features and Structure
 
 The application contains three main views:
