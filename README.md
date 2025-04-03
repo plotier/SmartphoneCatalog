@@ -64,6 +64,14 @@ base price as it seemed to be the expected behavior.
 - Fonts: The application uses
   `font-family: Helvetica, Arial, sans-serif`.
 
+## Setup and Installation
+
+1. Clone this repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
 ## Development and Production Modes
 
 - **Development Mode:** Use `npm run dev` to run the app in
@@ -83,13 +91,6 @@ some Chrome extensions may trigger a warning. It is
 recommended to run the app in **Incognito Mode** to avoid
 this issue.
 
-## Setup and Installation
-
-1. Clone this repository.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
 
 ## Architecture
 
@@ -128,6 +129,11 @@ more efficient user experience.
 - **Tests Implemented:** Currently, there are six tests
   covering basic component functionality and interactions.
   Additional tests can be added to improve coverage.
+
+Run tests:
+  ```bash
+    npx jest
+  ```
 
 ## Linting and Formatting
 
