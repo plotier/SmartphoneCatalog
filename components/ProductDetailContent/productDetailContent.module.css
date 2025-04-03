@@ -84,7 +84,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   max-width: 1000px;
   padding-bottom: 16px;
 }
@@ -126,7 +126,6 @@
 }
 
 .carrouselContainer {
-  /* scrollbar-width: thin; */
   scrollbar-color: black 
 }
 

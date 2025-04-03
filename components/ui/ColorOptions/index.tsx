@@ -12,11 +12,12 @@ const ColorOptions = ({
 	onChange: (color: ColorOptionType) => void;
 }) => {
 	return (
-		<div className={styles.optionsContainer}>
+		<div className={styles.optionsContainer} >
 			{options.map(
 				(option: ColorOptionType, index: number) => (
 					<div
 						key={index}
+						data-testid={option.name} 
 						className={`${styles.option} ${
 							selectedColor === option.name
 								? styles.selected

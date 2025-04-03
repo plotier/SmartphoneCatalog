@@ -16,13 +16,13 @@ const ProductCard = ({ product, isMinSize = false }: { product: Product; isMinSi
 						fill
 						style={{ objectFit: "contain" , }} 
 						priority
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-					/>
+						sizes="(max-width: 420px) 90vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 377px"
+						/>
 				</div>
 				<div className={styles.cardInfoContainer}>
 					<div className={styles.cardNames}>
-						<p>{product.brand.toLocaleUpperCase()}</p>
-						<p>{product.name.toLocaleUpperCase()}</p>
+					<p>{product?.brand?.toLocaleUpperCase() || "Unknown Brand"}</p>
+					<p>{product?.name?.toLocaleUpperCase() || "Unknown Product"}</p>
 					</div>
 					<p>{product.basePrice} EUR</p>
 				</div>
