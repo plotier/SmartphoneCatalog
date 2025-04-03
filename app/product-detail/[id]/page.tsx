@@ -6,14 +6,22 @@ import {
     dehydrate,
 } from "@tanstack/react-query";
 
-export default async function ProductDetail({ params }: { params: { id: string } }) {
-    const queryClient = new QueryClient();
+
+type PageProps = {
+    params: {
+        id: Promise<{ id: string }>;
+    };
+};
+
+export default async function ProductDetail({ params }: PageProps) {
     const { id } = await params;
+
+    const queryClient = new QueryClient();
 
     await queryClient.prefetchQuery({
         queryKey: ["product", id],
-        queryFn: () => getProductById(id)
-    })
+        queryFn: () => getProductById(id),
+    });
 
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
