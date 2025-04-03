@@ -177,7 +177,7 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 								label={key
 									.replace(/([A-Z])/g, " $1")
 									.toUpperCase()}
-								data={value}
+								data={String(value)}
 							/>
 						)
 					)}
