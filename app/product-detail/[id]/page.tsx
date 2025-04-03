@@ -6,15 +6,12 @@ import {
     dehydrate,
 } from "@tanstack/react-query";
 
-
 type PageProps = {
-    params: {
-        id: Promise<{ id: string }>;
-    };
+    params: Promise<{ id: string }>; 
 };
 
 export default async function ProductDetail({ params }: PageProps) {
-    const { id } = await params;
+    const { id } = await params; 
 
     const queryClient = new QueryClient();
 

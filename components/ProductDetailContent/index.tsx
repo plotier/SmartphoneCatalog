@@ -132,7 +132,7 @@ const ProductDetailContent = ({ id }: { id: string }) => {
 							<p>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</p>
 							<div className={styles.storageContainer}>
 								{product?.storageOptions.map(
-									(option: Product, index: number) => (
+									(option: StorageOptions, index: number) => (
 										<StorageButton
 											key={index}
 											label={option.capacity}
